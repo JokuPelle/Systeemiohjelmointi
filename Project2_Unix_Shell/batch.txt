@@ -1,0 +1,11 @@
+echo hello world
+cd
+path
+ls -la
+path /bin
+cat >	cattext.txt&	grep line wish.c> greptext.txt&ls -la
+hello!!!
+mkdir testfolder
+cd testfolder
+echo	This stuff should go to a file>echotext.txt
+exit
