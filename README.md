@@ -1,7 +1,7 @@
 # Harjoitustyöt - Juuso Ylikoski
 ### CT30A3370 - Systeemiohjelmointi
 
-## Project1 - Unix Shell
+## Project1 - Unix Utilities
 The project folder contains all four utilities, which can be compiled with for example "gcc my-cat.c -o my-cat -Wall -Werror".
 
 ## Project2 - Unix Shell
