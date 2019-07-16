@@ -13,7 +13,7 @@ void tulosta(char *filename) {
 	if ((tiedosto = fopen(filename, "r")) == NULL) {
 		perror("my-unzip: cannot open file\n");
 		exit(1); }
-	while(fread(&value,4,1,tiedosto) != NULL) {
+	while(fread(&value,4,1,tiedosto) != 0) {
 		fread(&letter,1,1,tiedosto);
 		for (int i=0; i < value; i++) {
 				printf("%c",letter);

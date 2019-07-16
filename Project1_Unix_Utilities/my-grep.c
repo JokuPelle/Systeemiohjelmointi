@@ -11,7 +11,7 @@ void etsinta(char *sana, char *filename) {
 	size_t n = 0;
 	ssize_t rivi_pituus;
 	char* rivi;
-	if (filename == "stdin") {
+	if (strcmp(filename, "stdin") == 0) {
 		while ((rivi_pituus = getline(&rivi, &n, stdin)) >= 0) {
 			if (strstr(rivi, sana) != NULL) {
 				printf("%s",rivi); } }

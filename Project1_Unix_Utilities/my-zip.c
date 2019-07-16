@@ -19,7 +19,7 @@ void tulosta(char *filename) {
 	while ((rivi_pituus = getline(&rivi, &n, tiedosto)) >= 0) {
 		k_numero = 0;
 		akirjain = rivi[k_numero];
-		while (akirjain != NULL) {
+		while (akirjain != '\0') {
 			bkirjain = rivi[k_numero + 1];
 			if (akirjain == bkirjain) {
 				maara++;
