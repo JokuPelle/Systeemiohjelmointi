@@ -32,11 +32,11 @@ char *fileOutput(char** args);
 // Purpose: Turns on batch mode, reads user's input or batch file's lines, turns them into arguments and executes them.
 // Uses: fixline, lineToArgs, execute
 int main(int argc, char **argv) {
+	char error_message0[] = "Error: Reading input failed.\n";
 	char error_message1[] = "Error: Too many arguments.\n";
 	char error_message2[] = "Error: File couldn't be opened.\n";
-	char line[32];
-	char *b = line;
-	int size = 1;
+	char *line;
+	size_t size = 0;
 	char** args;
 	FILE *file;
 	ssize_t read;
@@ -57,16 +57,18 @@ int main(int argc, char **argv) {
 	setenv("PATH", "/bin", 1);
 	while(1) {
 		if (batch_mode) {
-			if ((read = getline(&b,&size,file)) == -1) {
+			if ((read = getline(&line,&size,file)) == -1) {
 				return 0;
 			}
 		} else {
 			printf("wish> ");
-			getline(&b,&size,stdin);
+			if ((read = getline(&line,&size,stdin)) == -1) {
+				write(fileno(stderr), error_message0, strlen(error_message0));
+			}
 		}
 		strtok(line,"\n");
-		fixline(line);		
-		args = lineToArgs(line); //Split lines into argument array
+		fixline(line);	
+		args = lineToArgs(line);
 		execute(args);
 		free(args);
 	}
