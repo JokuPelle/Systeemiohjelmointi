@@ -260,17 +260,23 @@ char **getComArgs(char **all) {
 // Purpose: Returns the redirection file from command.
 // Used by: command
 char *fileOutput(char** args) {
+	char error_message8[] = "Error: Multiple redirection symbols in one command.\n";
+	char error_message9[] = "Error: Too many redirection arguments.\n";
 	char *o = NULL;
 	for (int i=0; args[i] != NULL; i++) {
 		if (strcmp(args[i], ">") == 0) {
 			if (args[i+1] != NULL && args[i+2] == NULL) {
-				if (strcmp(args[i+1], ">") == 0) return NULL; 
+				if (strcmp(args[i+1], ">") == 0) {
+					write(STDERR_FILENO, error_message8, strlen(error_message8));
+					return NULL; }
 				o = args[i+1];
 				for (i=i;args[i] != NULL; i++) {
 					args[i] = NULL;
 				}			
 				break;
-			} else return NULL;
+			} else {
+				write(STDERR_FILENO, error_message9, strlen(error_message9));
+				return NULL; }
 		}
 	} return o;
 }
