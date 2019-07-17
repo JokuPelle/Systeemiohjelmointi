@@ -9,7 +9,7 @@ The project folder contains the main file wish.c, an example batch file, and a c
 
 ## Project3 - Kernel Hacking
 The project folder contains the basic xv6 OS, with the necessary edits and adds required.
-This is the list of original files or modified files.
+This is the list of original files or modified files. First make sure to compile the program wish "make" and then start it with "make qemu".
 ### Original files:
 - getreadcount.asm
 - getreadcount.c

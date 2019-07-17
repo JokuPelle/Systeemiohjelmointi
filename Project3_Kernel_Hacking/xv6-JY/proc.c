@@ -15,8 +15,8 @@ struct {
 static struct proc *initproc;
 
 int nextpid = 1;
-int readcount = 0;
-int callnumber = 5;
+int readcount = 0; //nykyisen laskurin määrä
+int callnumber = 5; //nykyinen seurattava kutsu
 extern void forkret(void);
 extern void trapret(void);
 
@@ -540,12 +540,14 @@ getreadcount(int num)
 {
   char callnames[22][15] = {"fork","exit","wait","pipe","read","kill","exec","fstat","chdir","dup","getpid","sbrk", "sleep","uptime","open","write","mknod","unlink","link","mkdir","close","getreadcount"};
   if (num == 23) {
+    cprintf("System call '%s' has been called %d times.\n", callnames[callnumber-1], readcount);
+  } else if (num == 0) {
     readcount = 0;
-    cprintf("The counter has been reset\n");}
-  else if (num == 0) {
-    cprintf("System call '%s' has been called %d times.\n", callnames[callnumber-1], readcount);}
-  else if (num > 0 && num < 23) {
+    cprintf("The counter has been reset\n");
+  } else if (num > 0 && num < 23) {
     readcount = 0;
-    callnumber = num; }
-  return 22;
+    callnumber = num;
+  } else {
+    cprintf("Error: Input needs to be between 0-22.\n");}
+  return readcount;
 }

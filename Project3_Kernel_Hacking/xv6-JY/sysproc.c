@@ -7,6 +7,9 @@
 #include "mmu.h"
 #include "proc.h"
 
+extern int readcount2[];
+extern int callnumber;
+
 int
 sys_fork(void)
 {
