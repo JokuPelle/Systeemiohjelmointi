@@ -20,11 +20,12 @@ void tulosta(char *filename) {
 		k_numero = 0;
 		akirjain = rivi[k_numero];
 		while (akirjain != '\0') {
+			//Pick next char
 			bkirjain = rivi[k_numero + 1];
+			//If it's the same one, add to the amount, else write current amount and char
 			if (akirjain == bkirjain) {
 				maara++;
-			}else {
-				/*printf("%d",maara);*/
+			} else {
 				fwrite(&maara,4,1,stdout);
 				fwrite(&akirjain, 1, 1, stdout);
 				maara = 1; }
