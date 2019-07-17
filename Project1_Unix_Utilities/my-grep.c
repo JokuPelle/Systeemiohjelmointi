@@ -11,10 +11,12 @@ void etsinta(char *sana, char *filename) {
 	size_t n = 0;
 	ssize_t rivi_pituus;
 	char* rivi;
+	//No source file
 	if (strcmp(filename, "stdin") == 0) {
 		while ((rivi_pituus = getline(&rivi, &n, stdin)) >= 0) {
 			if (strstr(rivi, sana) != NULL) {
 				printf("%s",rivi); } }
+	//Source file
 	} else {
 		if ((tiedosto = fopen(filename, "r")) == NULL) {
 			perror("my-grep: cannot open file\n");
