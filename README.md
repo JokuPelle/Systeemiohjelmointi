@@ -1,4 +1,4 @@
-# Harjoitustyöt - Juuso Ylikoski
+# Course Projects
 ### CT30A3370 - Systeemiohjelmointi
 
 ## Project1 - Unix Utilities
