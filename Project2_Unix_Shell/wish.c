@@ -1,5 +1,4 @@
 //	File: wish.c
-//	Name: Juuso Ylikoski 0526228
 //	Date: 16.7.2019
 //    Course: CT30A3370 - Käyttöjärjestelmät ja systeemiohjelmointi
 //	Desc: This is a simple Unix Shell (Wisconsin Shell). This shell can be used in
