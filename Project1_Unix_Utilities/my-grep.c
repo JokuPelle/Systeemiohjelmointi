@@ -1,5 +1,4 @@
 /* my-grep.c */
-/* Juuso Ylikoski 0526228 */
 
 #define _GNU_SOURCE
 #include <stdio.h>
