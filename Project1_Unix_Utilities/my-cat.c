@@ -1,5 +1,4 @@
 /* my-cat.c */
-/* Juuso Ylikoski 0526228 */
 
 #include <stdio.h>
 #include <stdlib.h>
